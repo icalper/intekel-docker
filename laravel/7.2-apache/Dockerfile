@@ -27,11 +27,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN set -xe \
     && rm -r /var/www/html \
     && mkdir -p /var/www/laravel/public \
+    && mkdir -p /var/www/laravel/vendor \
     && chown -R www-data:www-data /var/www \
     && ln -s /var/www/laravel/public /var/www/html \
     && rm -r /var/www/laravel/public
-## Declarar volumen para laravel
-VOLUME /var/www/laravel
 ## Heredado de imagen original
 EXPOSE 80
 ## Heredado de imagen original
