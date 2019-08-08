@@ -15,7 +15,7 @@ RUN set -xe \
     ## bz2
     libbz2-dev
 ## Instalar extensiones
-RUN docker-php-ext-install mysqli zip gd bz2 bcmath && docker-php-ext-enable mysqli zip gd bz2 bcmath
+RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath
 RUN set -xe \
     && pecl install redis-4.3.0 \
     && pecl install xdebug-2.7.2
