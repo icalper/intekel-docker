@@ -31,6 +31,9 @@ RUN set -xe \
     && chown -R www-data:www-data /var/www \
     && ln -s /var/www/laravel/public /var/www/html \
     && rm -r /var/www/laravel/public
+## Zona horaria
+ENV TZ=America/Mexico_City
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ## Heredado de imagen original
 EXPOSE 80
 ## Heredado de imagen original
