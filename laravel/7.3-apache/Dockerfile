@@ -18,7 +18,7 @@ RUN set -xe \
     ## soap
     libxml2 libxml2-dev
 ## Instalar extensiones
-RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath soap
+RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath soap && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath soap
 RUN set -xe \
     && pecl install redis-5.2.2 \
     && pecl install xdebug-2.9.6
