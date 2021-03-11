@@ -13,16 +13,18 @@ RUN set -xe \
     ## gd
     libpng-dev \
     ## bz2
-    libbz2-dev
+    libbz2-dev \
+    ## soap
+    libxml2 libxml2-dev
 ## Instalar extensiones
-RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath
+RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath soap && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath soap
 RUN set -xe \
     && pecl install redis-4.3.0 \
     && pecl install xdebug-2.7.2
 ## Activar mods de apache requeridos
 RUN a2enmod rewrite
-## Instalar composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+## Instalar composer 1
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --1 --filename=composer
 ## Crear carpeta de laravel y vincular public al root de apache
 RUN set -xe \
     && rm -r /var/www/html \
