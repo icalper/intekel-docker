@@ -21,11 +21,11 @@ RUN set -xe \
 RUN docker-php-ext-install mysqli pdo_mysql zip gd bz2 bcmath soap && docker-php-ext-enable mysqli pdo_mysql zip gd bz2 bcmath soap
 RUN set -xe \
     && pecl install redis-5.2.2 \
-    && pecl install xdebug-2.9.6
+    && pecl install xdebug-2.9.8
 ## Activar mods de apache requeridos
 RUN a2enmod rewrite
-## Instalar composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+## Instalar composer 1
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --1 --filename=composer
 ## Crear carpeta de laravel y vincular public al root de apache
 RUN set -xe \
     && rm -r /var/www/html \
